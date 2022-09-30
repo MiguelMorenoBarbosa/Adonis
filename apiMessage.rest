@@ -1,7 +1,7 @@
 ######### Cadastro de Mensagem
 POST http://127.0.0.1:3333/messages HTTP/1.1 
 Content-Type: application/json 
-Authorization: Bearer MQ.XCdQ7W6t-N0QXrN_y-K5jkMWYWCWzhyRGqt2olkwK-4di1JcTUFKmGUB8McC 
+Authorization: Bearer MQ.nZd8tlTD48rN66uLD-Ezncuj21i52FAES_L87y4_6Sj8FJ0IBWfQRALzehoQ
 
 {
     "title": "Olá", 
@@ -11,18 +11,16 @@ Authorization: Bearer MQ.XCdQ7W6t-N0QXrN_y-K5jkMWYWCWzhyRGqt2olkwK-4di1JcTUFKmGU
 ######### Listar todos as Mensagens
 GET http://127.0.0.1:3333/messages HTTP/1.1 
 Content-Type: application/json 
-Authorization: Bearer MQ.PumXyNpu9QmizvQRjFVyQmH6nQXA-Lyh_YESHiupUXhExRgJG7ep3T4OnExz
-
+Authorization: Bearer MQ.nZd8tlTD48rN66uLD-Ezncuj21i52FAES_L87y4_6Sj8FJ0IBWfQRALzehoQ
 ######### Listar Mensagem específica 
 GET http://127.0.0.1:3333/messages/1 HTTP/1.1 
 Content-Type: application/json 
-Authorization: Bearer MQ.PumXyNpu9QmizvQRjFVyQmH6nQXA-Lyh_YESHiupUXhExRgJG7ep3T4OnExz
+Authorization: Bearer MQ.nZd8tlTD48rN66uLD-Ezncuj21i52FAES_L87y4_6Sj8FJ0IBWfQRALzehoQ
 
 ######### Alterar Mensagem 
 PUT http://127.0.0.1:3333/messages/1 HTTP/1.1 
 Content-Type: application/json 
-Authorization: Bearer MQ.PumXyNpu9QmizvQRjFVyQmH6nQXA-Lyh_YESHiupUXhExRgJG7ep3T4OnExz 
-
+Authorization: Bearer MQ.nZd8tlTD48rN66uLD-Ezncuj21i52FAES_L87y4_6Sj8FJ0IBWfQRALzehoQ
 {
     "title": "Olá", 
     "message": "Mensagem do chat alterada!"
@@ -31,4 +29,4 @@ Authorization: Bearer MQ.PumXyNpu9QmizvQRjFVyQmH6nQXA-Lyh_YESHiupUXhExRgJG7ep3T4
 ######### Apagar Mensagem 
 DELETE http://127.0.0.1:3333/messages/1 HTTP/1.1 
 Content-Type: application/json 
-Authorization: Bearer MQ.PumXyNpu9QmizvQRjFVyQmH6nQXA-Lyh_YESHiupUXhExRgJG7ep3T4OnExz
+Authorization: Bearer MQ.nZd8tlTD48rN66uLD-Ezncuj21i52FAES_L87y4_6Sj8FJ0IBWfQRALzehoQ
