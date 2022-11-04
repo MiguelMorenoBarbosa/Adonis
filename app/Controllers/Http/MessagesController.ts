@@ -11,8 +11,13 @@ export default class MessagesController {
 
   public async store({ request, auth }: HttpContextContract) {
     const data = await request.validate(MessageValidator)
-    const topic = await Message.create({ ...data, userId: auth.user?.id })
-    return topic
+    const message = await Message.create({
+      title: data.title,
+      message: data.message,
+      userId: auth.user?.id
+    })
+    await message.related('messageTopic').attach(data.topic)
+    return message
   }
 
   public async show({ params, response }: HttpContextContract) {
