@@ -1,9 +1,8 @@
-import { schema, CustomMessages } from '@ioc:Adonis/Core/Validator'
+import { schema, rules, CustomMessages } from '@ioc:Adonis/Core/Validator'
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import { rules } from '@ioc:Adonis/Core/Validator'
 
 export default class MessageValidator {
-  constructor(protected ctx: HttpContextContract) {}
+  constructor(protected ctx: HttpContextContract) { }
 
   /*
    * Define schema to validate the "shape", "type", "formatting" and "integrity" of data.
@@ -30,7 +29,10 @@ export default class MessageValidator {
     ]),
     message: schema.string({}, [
       rules.required()
-    ])
+    ]),
+    topic: schema.array().members(
+      schema.number()
+    )
   })
 
   /**
@@ -45,6 +47,6 @@ export default class MessageValidator {
    *
    */
   public messages: CustomMessages = {
-    required: "É obrigatório se cadastrar"
+    required: "O {{field}} é obrigatório para cadastrar a mensagem!!!",
   }
 }

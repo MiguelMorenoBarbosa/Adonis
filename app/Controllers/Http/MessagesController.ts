@@ -5,8 +5,12 @@ import MessageValidator from 'App/Validators/MessageValidator'
 export default class MessagesController {
 
   public async index({ }: HttpContextContract) {
-    const topic = await Message.query().preload('user').orderBy('id')
-    return topic
+    const message = await Message
+      .query()
+      .preload('messageTopic')
+      .preload('user')
+      .orderBy('id')
+    return message
   }
 
   public async store({ request, auth }: HttpContextContract) {
@@ -22,22 +26,25 @@ export default class MessagesController {
 
   public async show({ params, response }: HttpContextContract) {
     try {
-      const topic = await Message.findOrFail(params.id)
-      return topic
+      const message = await Message
+        .query()
+        .where("id", params.id)
+        .preload('messageTopic')
+      return message[0]
     } catch (error) {
       response.status(400).send("Mensagem não encontrada!!!")
     }
   }
 
   public async update({ request, params, response }: HttpContextContract) {
-    const { title, message } = await request.validate(MessageValidator)
     try {
-      const topic = await Message.findOrFail(params.id)
-      topic.title = title
-      topic.message = message
-      await topic.save()
-      return topic
-
+      const { title, message, topic } = await request.validate(MessageValidator)
+      const messageUpdate = await Message.findOrFail(params.id)
+      messageUpdate.title = title
+      messageUpdate.message = message
+      await messageUpdate.save()
+      await messageUpdate.related('messageTopic').sync(topic)
+      return messageUpdate
     } catch (error) {
       response.status(400).send("Mensagem não encontrada!!!")
     }
@@ -45,9 +52,9 @@ export default class MessagesController {
 
   public async destroy({ params, response }: HttpContextContract) {
     try {
-      const topic = await Message.findOrFail(params.id)
-      await topic.delete()
-      return topic
+      const message = await Message.findOrFail(params.id)
+      await message.delete()
+      return message
     } catch (error) {
       response.status(400).send("Mensagem não encontrada!!!")
     }

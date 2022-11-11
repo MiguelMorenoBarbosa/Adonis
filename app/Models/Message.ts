@@ -1,5 +1,10 @@
 import { DateTime } from 'luxon'
-import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
+import {
+  BaseModel, BelongsTo, belongsTo, column, HasMany,
+  hasMany, ManyToMany, manyToMany
+} from '@ioc:Adonis/Lucid/Orm'
+import Topic from './Topic'
+import MessageTopic from './MessageTopic'
 import User from './User'
 
 export default class Message extends BaseModel {
@@ -23,4 +28,16 @@ export default class Message extends BaseModel {
 
   @belongsTo(() => User)
   public user: BelongsTo<typeof User>
+
+  @manyToMany(() => Topic, {
+    localKey: 'id',
+    pivotForeignKey: 'message_id',
+    relatedKey: 'id',
+    pivotRelatedForeignKey: 'topic_id',
+    pivotTable: 'message_topic'
+  })
+  public messageTopic: ManyToMany<typeof Topic>
+
+  @hasMany(() => MessageTopic)
+  public messageTopics: HasMany<typeof MessageTopic>
 }
