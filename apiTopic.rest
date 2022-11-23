@@ -1,7 +1,7 @@
 ######### Cadastro Tópico
 POST http://127.0.0.1:3333/topics HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer Mg.1FP7y5f_vMRLsPUw2ieNQumE0d3AVSgkUIl3jcrugTk2N3PIpj-3U_yba3Mo
+Authorization: Bearer NQ.G0ZUC7q_-2Ty8vfnBmQ2roR_vWWOiF2Q_dut8EjFQOJYkY8d4XlIef-ojeFb
 
 {
     "name": "Recomendados"
@@ -10,18 +10,16 @@ Authorization: Bearer Mg.1FP7y5f_vMRLsPUw2ieNQumE0d3AVSgkUIl3jcrugTk2N3PIpj-3U_y
 ######### Listar todos os Tópico
 GET http://127.0.0.1:3333/topics HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer Mg.1FP7y5f_vMRLsPUw2ieNQumE0d3AVSgkUIl3jcrugTk2N3PIpj-3U_yba3Mo
-
+Authorization: Bearer NQ.G0ZUC7q_-2Ty8vfnBmQ2roR_vWWOiF2Q_dut8EjFQOJYkY8d4XlIef-ojeFb
 
 ######### Listar Tópico específico
 GET http://127.0.0.1:3333/topics/1 HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer Mg.1FP7y5f_vMRLsPUw2ieNQumE0d3AVSgkUIl3jcrugTk2N3PIpj-3U_yba3Mo
-
+Authorization: Bearer NQ.G0ZUC7q_-2Ty8vfnBmQ2roR_vWWOiF2Q_dut8EjFQOJYkY8d4XlIef-ojeFb
 ######### Alterar Tópico
 PUT http://127.0.0.1:3333/topics/1 HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer Mg.1FP7y5f_vMRLsPUw2ieNQumE0d3AVSgkUIl3jcrugTk2N3PIpj-3U_yba3Mo
+Authorization: Bearer NQ.G0ZUC7q_-2Ty8vfnBmQ2roR_vWWOiF2Q_dut8EjFQOJYkY8d4XlIef-ojeFb
 
 {
     "name": "Recomendados"
@@ -30,5 +28,4 @@ Authorization: Bearer Mg.1FP7y5f_vMRLsPUw2ieNQumE0d3AVSgkUIl3jcrugTk2N3PIpj-3U_y
 ######### Apagar Tópico
 DELETE http://127.0.0.1:3333/topics/1 HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer Mg.1FP7y5f_vMRLsPUw2ieNQumE0d3AVSgkUIl3jcrugTk2N3PIpj-3U_yba3Mo
-
+Authorization: Bearer NQ.G0ZUC7q_-2Ty8vfnBmQ2roR_vWWOiF2Q_dut8EjFQOJYkY8d4XlIef-ojeFb
