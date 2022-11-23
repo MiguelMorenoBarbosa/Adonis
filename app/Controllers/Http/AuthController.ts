@@ -6,7 +6,8 @@ export default class AuthController {
 
     public async register({ request }: HttpContextContract) {
         const data = await request.validate(RegisterUserValidator)
-       
+        const user = await User.create(data)
+        return user
     }
 
     public async login({ request, auth, response }: HttpContextContract){
